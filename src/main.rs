@@ -1,19 +1,23 @@
 use rust_fizz_buzz::fizzbuzz;
 
 use anyhow::Result;
+use clap::{app_from_crate, arg};
 use std::env;
 
 fn main() -> Result<()>{
-    let args: Vec<String> = env::args().collect();
+    let matches = app_from_crate!()
+        .arg(
+            arg!([N] "Print the first N fizz buzzes")
+            .required(true)
+        )
+        .get_matches();
 
-    if let Some(pos_arg) = args.get(1) {
-        let n: u64 = pos_arg.parse()?;
+    if let Some(n) = matches.value_of("N") {
+        let n: u64 = n.parse()?;
         let result = fizzbuzz(n)?;
         for line in result {
             println!("{0}", line);
         }
-    } else {
-        println!("Usage {0} <n: u64>", args.get(0).unwrap_or(&"fizzbuzz".to_string()));
     }
 
     Ok(())

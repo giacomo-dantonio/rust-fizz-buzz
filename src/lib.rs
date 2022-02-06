@@ -3,9 +3,9 @@ use anyhow::Result;
 pub fn fizzbuzz(n: u64) -> Result<Vec<String>> {
     let result = (1 .. n+1).map(|k| {
         if k % 15 == 0 {
-            "fizz buz".to_string()
+            "fizz buzz".to_string()
         } else if k % 5 == 0 {
-            "buz".to_string()
+            "buzz".to_string()
         } else if k % 3 == 0 {
             "fizz".to_string()
         } else {
