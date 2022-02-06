@@ -1,4 +1,4 @@
-use crosscard_interview::fizzbuzz;
+use rust_fizz_buzz::fizzbuzz;
 
 use anyhow::Result;
 use std::env;

@@ -1,5 +1,5 @@
 [package]
-name = "crosscard-interview"
+name = "rust-fizz-buzz"
 version = "0.1.0"
 edition = "2021"
 
